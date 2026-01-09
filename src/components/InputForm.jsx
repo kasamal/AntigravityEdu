@@ -48,8 +48,7 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
     }
   }, [date, logs, editingLog]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     console.log('handleSubmit called', { projectCode, hours, date, editingLog });
 
     if (!projectCode || !hours || !date) {
@@ -102,14 +101,14 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
   };
 
   return (
-    <form className="glass-panel input-form" onSubmit={handleSubmit}>
+    <form className="glass-panel input-form" onSubmit={(e) => e.preventDefault()}>
       <h2 className="form-title">
-        {editingLog ? <PencilLine size={24} color="var(--primary)" /> : <ClipboardList size={24} color="var(--secondary)" />}
-        {editingLog ? '編集モード' : '作業登録'}
+        <ClipboardList size={24} color="var(--secondary)" />
+        作業登録
       </h2>
 
       <div className="form-row">
-        <div className="form-group" style={{ minWidth: '130px' }}>
+        <div className="form-group" style={{ width: '140px', flex: 'none' }}>
           <label htmlFor="date">
             日付
           </label>
@@ -130,7 +129,7 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
           </div>
         </div>
 
-        <div className="form-group" style={{ minWidth: '120px' }}>
+        <div className="form-group" style={{ width: '140px', flex: 'none' }}>
           <label htmlFor="projectCode">プロジェクトコード</label>
           <input
             type="text"
@@ -151,7 +150,7 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
           </datalist>
         </div>
 
-        <div className="form-group" style={{ flexGrow: 2, minWidth: '200px' }}>
+        <div className="form-group" style={{ flexGrow: 1, minWidth: '200px' }}>
           <label htmlFor="description">作業内容</label>
           <input
             type="text"
@@ -164,7 +163,7 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
           />
         </div>
 
-        <div className="form-group" style={{ width: '90px' }}>
+        <div className="form-group" style={{ width: '80px', flex: 'none' }}>
           <label htmlFor="hours">工数 (h)</label>
           <input
             type="number"
@@ -181,15 +180,15 @@ function InputForm({ onAddLog, editingLog, onUpdateLog, onCancelEdit, onSwitchTo
 
         {editingLog ? (
           <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button type="submit" className="btn btn-primary add-btn" style={{ background: 'var(--primary)' }}>
+            <button type="button" onClick={handleSubmit} className="btn btn-primary add-btn" style={{ background: 'var(--primary)' }}>
               更新
             </button>
-            <button type="button" onClick={handleCancel} className="btn add-btn" style={{ background: 'transparent', border: '1px solid var(--text-muted)' }}>
+            <button type="button" onClick={handleCancel} className="btn btn-secondary add-btn">
               キャンセル
             </button>
           </div>
         ) : (
-          <button type="submit" className="btn btn-primary add-btn">
+          <button type="button" onClick={handleSubmit} className="btn btn-primary add-btn">
             追加
           </button>
         )}

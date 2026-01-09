@@ -14,6 +14,12 @@
     gap: 1rem;
 }
 
+.header-main-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 /* Week Selector */
 .week-selector {
     position: relative;
@@ -63,6 +69,7 @@
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    table-layout: fixed;
 }
 
 .log-table th {
@@ -79,7 +86,8 @@
     padding: 1rem;
     border-bottom: 1px solid var(--glass-border);
     color: var(--text-main);
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-all;
 }
 
 .log-table tr:not(.daily-header) .code-cell {
@@ -196,4 +204,28 @@
 .weekly-summary-row,
 .daily-summary {
     display: none;
+}
+
+@media (max-width: 768px) {
+    .history-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .header-main-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .glass-select {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .weekly-header-total {
+        align-self: flex-start;
+        margin-top: 0.25rem;
+    }
 }

@@ -108,14 +108,14 @@ function LogHistory({ logs, onDeleteLog, onEditLog, focusDate }) {
     return (
         <div className="glass-panel log-history">
             <div className="history-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div className="header-main-controls">
                     <h2 className="form-title" style={{ marginBottom: 0 }}>
                         <BarChart3 size={24} color="var(--primary)" />
                         作業実績
                     </h2>
 
                     {weekOptions.length > 0 && (
-                        <div className="week-selector" style={{ position: 'static', transform: 'none' }}>
+                        <div className="week-selector">
                             <select
                                 value={selectedWeek}
                                 onChange={(e) => setSelectedWeek(e.target.value)}
@@ -149,15 +149,15 @@ function LogHistory({ logs, onDeleteLog, onEditLog, focusDate }) {
                         <table className="log-table">
                             <thead>
                                 <tr>
-                                    <th>プロジェクトコード</th>
+                                    <th style={{ width: '280px' }}>プロジェクトコード</th>
                                     <th>作業内容</th>
-                                    <th style={{ width: '100px', textAlign: 'right' }}>
+                                    <th style={{ width: '80px', textAlign: 'right' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
                                             <Clock size={14} />
-                                            <span>工数 (h)</span>
+                                            <span>工数</span>
                                         </div>
                                     </th>
-                                    <th style={{ width: '90px' }}>操作</th>
+                                    <th style={{ width: '100px' }}>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
