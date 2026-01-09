@@ -1,0 +1,199 @@
+.log-history {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Week Selector */
+.week-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.glass-select {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    min-width: 220px;
+    height: 40px;
+}
+
+.glass-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-select option {
+    background: #0f172a;
+    color: var(--text-main);
+}
+
+.select-icon {
+    position: absolute;
+    right: 12px;
+    pointer-events: none;
+    color: var(--text-muted);
+}
+
+.log-table-container {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+}
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.log-table th {
+    padding: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.log-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.log-table tr:not(.daily-header) .code-cell {
+    padding-left: 2.5rem;
+    position: relative;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-weight: 600;
+}
+
+.log-table tr:last-child td {
+    border-bottom: none;
+}
+
+.log-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    background: rgba(255, 77, 77, 0.1);
+    border-radius: 4px;
+}
+
+/* Project Summary Styles */
+.project-summary-container {
+    margin-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+}
+
+.summary-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.summary-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-code {
+    font-family: 'Consolas', monospace;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.summary-value {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Daily Header Row */
+.daily-header td {
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: bold;
+    color: var(--primary);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.6rem 1rem;
+}
+
+.daily-header strong {
+    color: var(--text-main);
+}
+
+/* Weekly Header Total Badge */
+.weekly-header-total {
+    background: rgba(var(--secondary-rgb), 0.15);
+    border: 1px solid rgba(var(--secondary-rgb), 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.weekly-header-total strong {
+    color: var(--secondary);
+    font-size: 1.15rem;
+}
+
+/* Daily Summary / Footer Rows (Removed) */
+.weekly-summary-row,
+.daily-summary {
+    display: none;
+}
